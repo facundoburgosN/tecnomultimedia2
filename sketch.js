@@ -16,9 +16,9 @@ function draw() {
   if(cant <= 200){
     let x = random(150,width-150);
     let y = random(150,height-150);
-    if( random(100) < 50){//-------------------celeste
+    if( random(100) < 45){//-------------------celeste
       tint(52,168,215); 
-    } else if(random(100) < 20){//-------------azul
+    } else if(random(100) < 25){//-------------azul
       tint(0,71,123); 
     }else if(random(100) < 10){//--------------gris
       tint(143,169,186);
