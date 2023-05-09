@@ -25,7 +25,7 @@ function draw() {
     }else if(random(100) < 10){//--------------amarillo
       tint(252,233,104);
     }else if(random(100) < 10){//--------------rosa
-      tint(244,53,104);
+      tint(244,53,170);
     }
     image(img,x,y);
     cant = cant + 1;
