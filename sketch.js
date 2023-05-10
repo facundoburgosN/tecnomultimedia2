@@ -12,7 +12,7 @@ function preload() {
 function setup() {
   miVelocidadYDireccion = new Dir_y_Vel();
   createCanvas(1000, 1438);
-  background(240);
+  background(240);                   //adasdsadsaddad
   imageMode(CENTER);
   img2.mask(img1);
 }
