@@ -15,7 +15,7 @@ class GestorDeInteracion {
     this.tiempoGrande = constrain(this.tiempoGrande, 0, 90);
     this.tiempoPeque = constrain(this.tiempoPeque, 0, 90);
     if (this.mouse.velocidad()>10){
-      let umbral = 40;
+      let umbral = 50;
       if(this.mouse.velocidad() > umbral){
         this.tiempoGrande+=10;
         this.tiempoPeque-=10;
@@ -32,4 +32,9 @@ class GestorDeInteracion {
       this.movPeque = true;
     }
   } 
+
+  reset() {
+    this.tiempoGrande = 1;
+    this.tiempoPeque = 1;
+  }
 }
