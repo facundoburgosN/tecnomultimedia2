@@ -1,19 +1,25 @@
 
-let img;
+let img1;
 let cant = 1;
+let miVelocidadYDireccion;
 
 function preload() {
-  img = loadImage('data/trazo02.png');
+  img2 = loadImage('data/trazo02.png');
 }
 
 function setup() {
+  miVelocidadYDireccion = new Dir_y_Vel();
   createCanvas(1000, 1438);
   background(240);
   imageMode(CENTER);
 }
 
 function draw() {
-  if(cant <= 200){
+  miVelocidadYDireccion.calcularTodo(mouseX, mouseY);
+
+  let velocidad = miVelocidadYDireccion.velocidad();
+
+  if(cant <= 200 && velocidad >= 50){
     let x = random(150,width-150);
     let y = random(150,height-150);
     if( random(100) < 45){//-------------------celeste
@@ -27,7 +33,7 @@ function draw() {
     }else if(random(100) < 10){//--------------rosa
       tint(244,53,170);
     }
-    image(img,x,y);
+    image(img2,x,y);
     cant = cant + 1;
  }
 }
