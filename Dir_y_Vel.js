@@ -42,4 +42,15 @@ class Dir_y_Vel {
     direccionPolar() {
       return this.miDireccionPolar;
     }
+
+    mostrarData() {
+      fill(0);
+      rect(50,35,500,100);
+      textSize(24);
+      fill(255);
+      text("Velocidad: " + this.vel, 50, 50);
+      text("Direccion X: " + this.miDireccionX, 50, 75);
+      text("Direccion Y: " + this.miDireccionY, 50, 100);
+      text("Direccion Polar: " + this.miDireccionPolar, 50, 125);
+    }
 }
