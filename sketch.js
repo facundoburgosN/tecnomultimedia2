@@ -1,10 +1,12 @@
 
-let img1;
+let img2;
 let cant = 1;
 let miVelocidadYDireccion;
+let img1;
 
 function preload() {
-  img2 = loadImage('data/trazo02.png');
+  img2 = loadImage('data/rect.png');
+  img1 = loadImage('data/trazo02.png');
 }
 
 function setup() {
@@ -12,6 +14,7 @@ function setup() {
   createCanvas(1000, 1438);
   background(240);
   imageMode(CENTER);
+  img2.mask(img1);
 }
 
 function draw() {
