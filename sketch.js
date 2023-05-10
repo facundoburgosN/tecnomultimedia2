@@ -33,7 +33,7 @@ function draw() {
       tint(143,169,186);
     }else if(random(100) < 10){//--------------amarillo
       tint(252,233,104);
-    }else if(random(100) < 10){//--------------rosa
+    }else if(random(100) < 10){//--------------rosa como tu culo 
       tint(244,53,170);
     }
     image(img2,x,y);
