@@ -38,5 +38,6 @@ function draw() {
     }
     image(img2,x,y);
     cant = cant + 1;
+    rect(100,100);
  }
 }
