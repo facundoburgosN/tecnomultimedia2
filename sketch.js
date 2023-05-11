@@ -14,7 +14,7 @@ let rosa = 0;
 
 function preload() {
   img2 = loadImage('data/rect.png');
-  img1 = loadImage('data/trazo03.png');
+  img1 = loadImage('data/trazo00.png');
 }
 
 function setup() {
