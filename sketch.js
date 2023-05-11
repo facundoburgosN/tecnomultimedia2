@@ -1,4 +1,6 @@
 
+//https://youtu.be/mz7j_4N8XuY
+
 let img2;
 let cant = 0;
 let miVelocidadYDireccion;
