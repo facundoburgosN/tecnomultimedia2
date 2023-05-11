@@ -38,7 +38,7 @@ function draw() {
     // CAMBIAR PARA NO SEA COMLETAMENTE ALEATORIO
     let y = random(75,height-75);
 
-    if((mouseX > 0 && mouseX < 600 && mouseY > 266 && mouseY < 533) && celeste <= 100 && velocidad > 5 && velocidad < 15){//-------------------celeste
+    if((mouseX > 0 && mouseX < 600 && mouseY > 266 && mouseY < 533) && celeste <= 100 && velocidad > 5 && velocidad > 5){//-------------------celeste
       tint(52,168,215); 
 
       if (frameCount%5 == 0){
@@ -47,7 +47,7 @@ function draw() {
         celeste++;
       }
 
-    } else if((mouseX > 0 && mouseX < 300 && mouseY > 0 && mouseY < 266) && azul <= 75 && velocidad > 20){//-------------azul
+    } else if((mouseX > 0 && mouseX < 300 && mouseY > 0 && mouseY < 266) && azul <= 75 && velocidad > 10){//-------------azul
       gestor.reset();
       tint(0,71,123); 
 
@@ -57,7 +57,7 @@ function draw() {
         azul++;
       }
 
-    }else if((mouseX > 300 && mouseX < 600 && mouseY > 0 && mouseY < 266) && gris <= 25 && velocidad > 20){//--------------gris
+    }else if((mouseX > 300 && mouseX < 600 && mouseY > 0 && mouseY < 266) && gris <= 25 && velocidad > 10){//--------------gris
       gestor.reset();
       tint(143,169,186);
 
@@ -67,7 +67,7 @@ function draw() {
         gris++;
       }
 
-    }else if((mouseX > 0 && mouseX < 300 && mouseY > 533 && mouseY < 800) && amarillo <= 25 && velocidad > 20){//--------------amarillo
+    }else if((mouseX > 0 && mouseX < 300 && mouseY > 533 && mouseY < 800) && amarillo <= 10 && velocidad > 10){//--------------amarillo
       gestor.reset();
       tint(252,233,104);
 
@@ -77,7 +77,7 @@ function draw() {
         amarillo++;
       }
 
-    }else if((mouseX > 300 && mouseX < 600 && mouseY > 533 && mouseY < 800) && rosa <= 25 && velocidad > 20){//--------------rosa
+    }else if((mouseX > 300 && mouseX < 600 && mouseY > 533 && mouseY < 800) && rosa <= 10 && velocidad > 10){//--------------rosa
       gestor.reset();
       tint(244,53,170);
 
@@ -86,7 +86,6 @@ function draw() {
         cant = cant + 1;
         rosa++;
       }
-
     }
   }
 }
