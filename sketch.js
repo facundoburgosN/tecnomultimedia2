@@ -22,7 +22,7 @@ function preload() {
     arreglo[i] = loadImage(nombre);
     rect.push (loadImage('data/rect.png'));
   }
-  //-------------------------------------------
+
 }
 
 function setup() {
@@ -32,37 +32,25 @@ function setup() {
   imageMode(CENTER);
 
   //-------DIRECCION Y INTERACCION-------
-
   miVelocidadYDireccion = new Dir_y_Vel();
   gestor = new GestorDeInteracion();
 
-  //-------------------------------------------
-
   //-------APLICACION DE MASCARA A LOS RECTANGULOS-------
-
   for (let i = 0; i < 12; i++){
     rect[i].mask (arreglo[i]);
   }
-
-  //-------------------------------------------
 
 }
 
 function draw() {
 
   //-------DIRECCION Y INTERACCION-------
-
   miVelocidadYDireccion.calcularTodo(mouseX, mouseY);
   let velocidad = miVelocidadYDireccion.velocidad();
   gestor.actualizar();
-
-  //-------------------------------------------
   
   //-------APLICACION DE MASCARA A LOS RECTANGULOS-------
-
   let trazoRandom = rect[int(random(rect.length))];
-
-  //-------------------------------------------
 
   if(cant <= 250){
 
@@ -71,7 +59,6 @@ function draw() {
     let y = random(75,height-75);
 
     //-------USAR COLOR CELESTE-------
-
     if((mouseX > 0 && mouseX < 600 && mouseY > 266 && mouseY < 533) && celeste <= 100 && velocidad > 5 && velocidad > 5){//-------------------celeste
       tint(52,168,215);
 
@@ -80,8 +67,6 @@ function draw() {
         cant = cant + 1;
         celeste++;
       }
-    
-    //-------------------------------------------
 
     //-------USAR COLOR AZUL-------
     } else if((mouseX > 0 && mouseX < 300 && mouseY > 0 && mouseY < 266) && azul <= 75 && velocidad > 10){//-------------azul
@@ -95,7 +80,6 @@ function draw() {
       }
 
     //-------USAR COLOR GRIS-------
-
     }else if((mouseX > 300 && mouseX < 600 && mouseY > 0 && mouseY < 266) && gris <= 25 && velocidad > 10){//--------------gris
       gestor.reset();
       tint(143,169,186);
@@ -106,10 +90,7 @@ function draw() {
         gris++;
       }
 
-      //-------------------------------------------
-
     //-------USAR COLOR AMARILLO-------
-
     }else if((mouseX > 0 && mouseX < 300 && mouseY > 533 && mouseY < 800) && amarillo <= 10 && velocidad > 10){//--------------amarillo
       gestor.reset();
       tint(252,233,104);
@@ -120,10 +101,7 @@ function draw() {
         amarillo++;
       }
 
-      //-------------------------------------------
-    
     //-------USAR COLOR ROSA-------
-
     }else if((mouseX > 300 && mouseX < 600 && mouseY > 533 && mouseY < 800) && rosa <= 10 && velocidad > 10){//--------------rosa
       gestor.reset();
       tint(244,53,170);
@@ -134,7 +112,6 @@ function draw() {
         rosa++;
       }
     }
-
-    //-------------------------------------------
+    
   }
 }
