@@ -3,8 +3,17 @@ let img2;
 let cant = 1;
 let miVelocidadYDireccion;
 let img1;
+//-------------Imprimir datos
+let font;
+let IMPRIMIR = true;
+//-------------Mic
+let mic;
+let amp; //----variable para cargar la amplitud de la señal de entrada 
+let amp_min = 0.02;
+let haySonido = false;
 
 function preload() {
+  font = loadFont('data/Regular.otf');
   img2 = loadImage('data/rect.png');
   img1 = loadImage('data/trazo02.png');
 }
@@ -12,17 +21,22 @@ function preload() {
 function setup() {
   miVelocidadYDireccion = new Dir_y_Vel();
   createCanvas(1000, 1438);
-  background(240);                 
+  background(240);
   imageMode(CENTER);
   img2.mask(img1);
+  // Mic
+  mic = new p5.AudioIn();
+  mic.start();
+  userStartAudio();
 }
 
 function draw() {
   miVelocidadYDireccion.calcularTodo(mouseX, mouseY);
 
   let velocidad = miVelocidadYDireccion.velocidad();
-
-  if(cant <= 200 && velocidad >= 50){
+  amp = mic.getLevel(); //---------------------Mic
+  haySonido = amp > amp_min;
+  if(cant <= 200 && velocidad >= 50 && haySonido){
     let x = random(150,width-150);
     let y = random(150,height-150);
     if( random(100) < 45){//-------------------celeste
@@ -38,6 +52,11 @@ function draw() {
     }
     image(img2,x,y);
     cant = cant + 1;
-    ANASHEI
+    }
+  if(IMPRIMIR){
+      printData();
  }
-}            //ASDASDASD
+ function windowResized() {
+  resize(windowWidth,windowHeight);
+ }
+}
