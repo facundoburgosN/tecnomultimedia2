@@ -113,6 +113,5 @@ function draw() {
         rosa++;
       }
     }
-    
   }
 }
