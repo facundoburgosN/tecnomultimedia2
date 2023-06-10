@@ -1,0 +1,15 @@
+Propuesta de interacción: 
+    *En cuanto a los agudos/graves, que "titilen" los Trazos o "pulsen" como si fuera un corazón.
+    *En cuanto a la amplitud, que al superar cierto umbral "estallen" los Trazos (Crecen en tamaño y dar la ilusión de estallido).
+    *(Opcional) Que cada color tenga cierta resistencia al estallido de la amplitud.
+    *(Opcional) Que los Trazos "vibren" en su lugar luego de que estalle otra mancha.
+    *(Opcional) Al reaparecer/desaparecer, dar un efecto de desvanecimiento/aparición modificando el valor gamma.
+-
+Objetivos:
+    *Extraer Trazos sin color.
+    *Tomar nota de la proporción de distribución del color.
+    *Acomodar en una grilla con cierto espaciado entre sí.
+    *Crear una clase que elija los colores.
+    *Dar color a las formas.
+    *Establecer entrada de sonido ya filtrada.
+    *Asignar dicha entrada de sonido a las interacciones arriba mencionadas
