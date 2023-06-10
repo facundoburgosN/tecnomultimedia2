@@ -2,10 +2,23 @@
 //https://youtu.be/mz7j_4N8XuY
 
 let arreglo = [];
-let rect = [];
+let mascara = [];
 let cant = 0;
 let miVelocidadYDireccion;
 let gestor;
+
+//--------SONIDO-------
+let img1;
+
+//-------IMPRIMIR------
+let font;
+let IMPRIMIR = true;
+
+//-------MICROFONO------
+let mic;
+let amp;
+let amp_min = 0.01;
+let haySonido = false;
 
 //-------COLORES-------
 let celeste = 0;
@@ -15,21 +28,27 @@ let amarillo = 0;
 let rosa = 0;
 
 function preload() {
-
+  font = loadFont('data/regular.otf');
   //-------CARGA DE TRAZOS Y RECTANGULOS-------
   for (let i = 0; i < 32; i++){
     let nombre = "data/trazo"+nf( i , 2 )+".png";
     arreglo[i] = loadImage(nombre);
-    rect.push (loadImage('data/rect.png'));
+    mascara.push (loadImage('data/rect.png'));
   }
 
 }
 
 function setup() {
+  miVelocidadYDireccion = new Dir_y_Vel();
 
   createCanvas(600, 800);
   background(255);                 
   imageMode(CENTER);
+
+  // MIC
+  mic = new p5.AudioIn();
+  mic.start();
+  userStartAudio();
 
   //-------DIRECCION Y INTERACCION-------
   miVelocidadYDireccion = new Dir_y_Vel();
@@ -37,12 +56,20 @@ function setup() {
 
   //-------APLICACION DE MASCARA A LOS RECTANGULOS-------
   for (let i = 0; i < 32; i++){
-    rect[i].mask (arreglo[i]);
+    mascara[i].mask (arreglo[i]);
   }
 
 }
 
 function draw() {
+  //--------MICROFONO---------
+  amp = mic.getLevel(); 
+
+  if(amp > amp_min){
+    haySonido = true;
+  } else {
+    haySonido = false;
+  }
 
   //-------DIRECCION Y INTERACCION-------
   miVelocidadYDireccion.calcularTodo(mouseX, mouseY);
@@ -50,8 +77,11 @@ function draw() {
   gestor.actualizar();
   
   //-------APLICACION DE MASCARA A LOS RECTANGULOS-------
-  let trazoRandom = rect[int(random(rect.length))];            //ESTO ES PARA LA MASCARA
+  let trazoRandom = mascara[int(random(mascara.length))];            //ESTO ES PARA LA MASCARA
   //let trazoRandom = arreglo[int(random(arreglo.length))];
+
+  print(amp);
+  printData();
 
   if(cant <= 250){
 
@@ -60,7 +90,7 @@ function draw() {
     let y = random(200,height-200);
 
     //-------USAR COLOR CELESTE-------
-    if((mouseX > 0 && mouseX < width && mouseY > 266 && mouseY < 533) && celeste <= 10 && velocidad > 5 && velocidad > 5){//-------------------celeste
+    if(celeste <= 10 && haySonido){//-------------------celeste
       tint(52,168,215);
 
       if (frameCount%5 == 0){
@@ -70,7 +100,7 @@ function draw() {
       }
 
     //-------USAR COLOR AZUL-------
-    } else if((mouseX > 0 && mouseX < 300 && mouseY > 0 && mouseY < 266) && azul <= 10 && velocidad > 10){//-------------azul
+    } else if(azul <= 10 && haySonido){//-------------azul
       gestor.reset();
       tint(0,71,123); 
 
@@ -81,7 +111,7 @@ function draw() {
       }
 
     //-------USAR COLOR GRIS-------
-    }else if((mouseX > 300 && mouseX < 600 && mouseY > 0 && mouseY < 266) && gris <= 5 && velocidad > 10){//--------------gris
+    }else if(gris <= 5 && haySonido){//--------------gris
       gestor.reset();
       tint(143,169,186);
 
@@ -92,7 +122,7 @@ function draw() {
       }
 
     //-------USAR COLOR AMARILLO-------
-    }else if((mouseX > 0 && mouseX < 300 && mouseY > 533 && mouseY < 800) && amarillo <= 3 && velocidad > 10){//--------------amarillo
+    }else if(amarillo <= 3 && haySonido){//--------------amarillo
       gestor.reset();
       tint(252,233,104);
 
@@ -103,7 +133,7 @@ function draw() {
       }
 
     //-------USAR COLOR ROSA-------
-    }else if((mouseX > 300 && mouseX < 600 && mouseY > 533 && mouseY < 800) && rosa <= 2 && velocidad > 10){//--------------rosa
+    }else if(rosa <= 2 && haySonido){//--------------rosa
       gestor.reset();
       tint(244,53,170);
 
@@ -113,5 +143,8 @@ function draw() {
         rosa++;
       }
     }
+  }
+  function windowResized() {
+    resize(windowWidth,windowHeight);
   }
 }
