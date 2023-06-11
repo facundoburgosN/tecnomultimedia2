@@ -143,8 +143,8 @@ function draw() {
         rosa++;
       }
     }
-  }
-  function windowResized() {
-    resize(windowWidth,windowHeight);
-  }
-}
+    image(img2,x,y);
+    cant = cant + 1;
+    ANASHEI
+ }
+}            //ASDASDASD
