@@ -37,7 +37,7 @@ function preload() {
   }
 
 }
-
+//BLALALBLALBLA
 function setup() {
   miVelocidadYDireccion = new Dir_y_Vel();
 
